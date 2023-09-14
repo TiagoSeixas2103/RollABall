@@ -15,10 +15,6 @@ Jogo em Unity 3D (Core), onde se usa as setas do teclado para mover uma esfera, 
 - https://www.youtube.com/shorts/YVATrLTZZTk
 - https://www.youtube.com/watch?v=QN2LoBUlbGE
 
-### Tutorial SFX:
-- https://www.youtube.com/watch?v=JnbDxG04i7c
-
-
 ### Assets
 - https://assetstore.unity.com/packages/3d/props/pirate-coin-207743
 
