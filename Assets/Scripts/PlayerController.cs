@@ -76,11 +76,14 @@ public class PlayerController : MonoBehaviour {
 
 	void SetTimeText()
 	{
-		currentTime = (int)Time.timeSinceLevelLoad;
-		timeText.text = currentTime.ToString() + "s";
-
-		if (Time.timeSinceLevelLoad >= 120) 
+		if (Time.timeSinceLevelLoad <= 120 && won == false && hp > 0)
 		{
+			currentTime = (int)Time.timeSinceLevelLoad;
+			timeText.text = currentTime.ToString() + "s";
+		}
+		else if (Time.timeSinceLevelLoad > 120 && won == false && hp > 0)
+		{
+			timeText.text = "120s";
             loseTextObject.SetActive(true);
 			playAgainButton.SetActive(true);
 		}
@@ -88,13 +91,13 @@ public class PlayerController : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		if (hp > 0 && won == false && Time.timeSinceLevelLoad <= 120) {
+		if (Time.timeSinceLevelLoad <= 120 && hp > 0 && won == false) {
 			Vector3 movement = new Vector3(movementX, 0.0f, movementY);
 
 			rb.AddForce(movement * speed);
-
-			SetTimeText();
 		}
+
+		SetTimeText();
 	}
 
 	void OnTriggerEnter(Collider other) 
