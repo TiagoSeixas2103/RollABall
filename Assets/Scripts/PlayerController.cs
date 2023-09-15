@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour {
 		currentTime = (int)Time.timeSinceLevelLoad;
 		timeText.text = currentTime.ToString() + "s";
 
-		if (Time.time >= 120) 
+		if (Time.timeSinceLevelLoad >= 120) 
 		{
             loseTextObject.SetActive(true);
 			playAgainButton.SetActive(true);
@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		if (hp > 0 && won == false && Time.time < 120) {
+		if (hp > 0 && won == false && Time.timeSinceLevelLoad <= 120) {
 			Vector3 movement = new Vector3(movementX, 0.0f, movementY);
 
 			rb.AddForce(movement * speed);
